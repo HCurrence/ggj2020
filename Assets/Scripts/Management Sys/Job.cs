@@ -1,14 +1,19 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Job : MonoBehaviour
+[Serializable]
+public class Job
 {
-
+    [SerializeField]
     protected int job_number;
+    [SerializeField]
     protected string job_description;
 
-    protected List<Manager.Profession> compatible_professions;
+    [SerializeField]
+    protected List<WorkManager.Profession> compatible_professions;
+    [SerializeField]
     protected List<Worker> workers;
 
     //4 item integer array
@@ -28,13 +33,13 @@ public class Job : MonoBehaviour
         job_description = "N/A";
 
         workers = new List<Worker>();
-        compatible_professions = new List<Manager.Profession>();
+        compatible_professions = new List<WorkManager.Profession>();
 
         complete = false;
 
         team_trait_expectation = new int[4];
     }
-    public Job(int num, string desc, List<Manager.Profession> list, int[] expectedValues)
+    public Job(int num, string desc, List<WorkManager.Profession> list, int[] expectedValues)
     {
         job_number = num;
         job_description = desc;
@@ -67,7 +72,7 @@ public class Job : MonoBehaviour
         workers.Remove(w);
         w.assignedJob();
     }
-    public void setCompatibleProfessions(List<Manager.Profession> list)
+    public void setCompatibleProfessions(List<WorkManager.Profession> list)
     {
         compatible_professions.AddRange(list);
     }

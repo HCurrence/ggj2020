@@ -1,17 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Worker : MonoBehaviour
+[Serializable]
+public class Worker
 {
-
+    [Range(1, 5)]
     public int strength, trade_knowledge, tech_knowledge, professionalism;
+    [Range(0, 1)]
     public float stress;
     protected float rate;
     protected bool assigned; 
 
     public string name;
-    public Manager.Profession profession;
+    public WorkManager.Profession profession;
 
     public Worker()
     {
@@ -25,7 +28,7 @@ public class Worker : MonoBehaviour
         assigned = false;
 
         name = "John Doe";
-        profession = Manager.Profession.Unemployed;
+        profession = WorkManager.Profession.Unemployed;
     }
 
     /*

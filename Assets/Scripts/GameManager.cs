@@ -27,9 +27,8 @@ public class GameManager : Manager<GameManager> {
 
         // generate all the random stuff here using the inputted name as a random seed
         using (var r = new WithRandomSeed(hash_djb2(Name))) {
-            for (int i = 0; i < 5; i++) {
-                Debug.Log("Random name = " + NameGenerator.Inst.GetRandomFirstName() + " " + NameGenerator.Inst.GetRandomLastName());
-            }
+            WorkManager.Inst.generateWorkers(12);
+            WorkManager.Inst.generateJobs(4);
         }
 
         // setup computer

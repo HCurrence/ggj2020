@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Manager : MonoBehaviour
+public class WorkManager : Manager<WorkManager>
 {
     public enum Profession
     {
@@ -16,18 +16,18 @@ public class Manager : MonoBehaviour
         Unemployed
     }
 
-    public static List<Job> orders = new List<Job>();
-    public static List<Worker> available_workers = new List<Worker>();
-    public static List<Worker> unavailable_workers = new List<Worker>();
+    public List<Job> orders = new List<Job>();
+    public List<Worker> available_workers = new List<Worker>();
+    public List<Worker> unavailable_workers = new List<Worker>();
 
-    public static void generateJobs()
+    public void generateJobs(int num)
     {
         int jobNum;
         string jobDesc;
-        List<Manager.Profession> professions;
+        List<Profession> professions;
         int[] traits;
 
-        for (int i=0; i<5; i++)
+        for (int i=0; i<num; i++)
         {
             jobNum = Random.Range(1, 101);
             jobDesc = jobDescriptions(Random.Range(1, 5));
@@ -44,9 +44,9 @@ public class Manager : MonoBehaviour
             orders.Add(new Job(jobNum, jobDesc, professions, traits));
         }
     }
-    public static void generateWorkers()
+    public void generateWorkers(int num)
     {
-        for(int i=0; i<10; i++)
+        for(int i=0; i<num; i++)
         {
             Worker w = new Worker();
 
@@ -57,20 +57,20 @@ public class Manager : MonoBehaviour
 
             w.stress = Random.Range(1, 10);
 
-            w.name = randNames(Random.Range(1, 5));
+            w.name = NameGenerator.Inst.GetRandomFirstName() + " " + NameGenerator.Inst.GetRandomLastName();
             w.profession = randProfession(Random.Range(0, 6));
 
             available_workers.Add(w);
         }
     }
 
-    public static void vacation(Worker w)
+    public void vacation(Worker w)
     {
         available_workers.Remove(w);
         unavailable_workers.Add(w);
     }
 
-    public static string jobDescriptions(int randNum)
+    public string jobDescriptions(int randNum)
     {
         switch(randNum)
         {
@@ -89,26 +89,7 @@ public class Manager : MonoBehaviour
         return "Job goes here";
     }
 
-    public static string randNames(int randNum)
-    {
-        switch (randNum)
-        {
-            case 1:
-                return "Rando Mando";
-            case 2:
-                return "Pia";
-            case 3:
-                return "Momin";
-            case 4:
-                return "Haley";
-            case 5:
-                return "Yolanda";
-        }
-
-        return "No Name";
-    }
-
-    public static Profession randProfession(int randNum)
+    public Profession randProfession(int randNum)
     {
         switch (randNum)
         {
