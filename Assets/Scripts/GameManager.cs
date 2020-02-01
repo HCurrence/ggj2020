@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -11,6 +12,7 @@ public class GameManager : Manager<GameManager> {
 
     public GameObject[] LoginObjects;
     public Button DefaultButton;
+    public TextMeshProUGUI WelcomeText;
 
     static int hash_djb2(string s) {
         uint hash = 5381;
@@ -34,5 +36,6 @@ public class GameManager : Manager<GameManager> {
         LoginObjects.ForEach(go => go.SetActive(false));
         DefaultButton.OnPointerClick(new PointerEventData(EventSystem.current));
         DefaultButton.Select();
+        WelcomeText.text = WelcomeText.text.Replace("{}", Name);
     }
 }
