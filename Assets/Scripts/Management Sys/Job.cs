@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JobOrder : MonoBehaviour
+public class Job : MonoBehaviour
 {
 
     protected int job_number;
@@ -22,7 +22,7 @@ public class JobOrder : MonoBehaviour
 
     protected bool complete;
 
-    public JobOrder()
+    public Job()
     {
         job_number = -1;
         job_description = "N/A";
@@ -34,7 +34,7 @@ public class JobOrder : MonoBehaviour
 
         team_trait_expectation = new int[4];
     }
-    public JobOrder(int num, string desc, List<Manager.Profession> list, int[] expectedValues)
+    public Job(int num, string desc, List<Manager.Profession> list, int[] expectedValues)
     {
         job_number = num;
         job_description = desc;
@@ -59,13 +59,13 @@ public class JobOrder : MonoBehaviour
         if (!workers.contains(w))
         {
             workers.Add(w);
-            w.assigned();
+            w.assignedJob();
         }
     }
     public void removeWorker(Worker w)
     {
         workers.Remove(w);
-        w.assigned();
+        w.assignedJob();
     }
     public void setCompatibleProfessions(List<Manager.Profession> list)
     {

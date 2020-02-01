@@ -10,8 +10,7 @@ public class Worker : MonoBehaviour
     protected float rate;
     protected bool assigned; 
 
-    [HideInInpector]
-    protected string name;
+    public string name;
     public Manager.Profession profession;
 
     public Worker()
@@ -51,7 +50,7 @@ public class Worker : MonoBehaviour
         return (int)(rateWorker() / 5);
     }
 
-    public bool assigned()
+    public bool assignedJob()
     {
         assigned = !assigned;
     }
