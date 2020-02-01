@@ -56,7 +56,7 @@ public class Job : MonoBehaviour
  
     public void addWorker(Worker w)
     {
-        if (!workers.contains(w))
+        if (!workers.Contains(w))
         {
             workers.Add(w);
             w.assignedJob();
@@ -82,16 +82,16 @@ public class Job : MonoBehaviour
     }
     
     //Returns job satisfaction factor
-    public int checkJobCompatibility(Worker w)
+    public double checkJobCompatibility(Worker w)
     {
-        int factor = 0;
-        if(compatible_professions.contains(w.profession))
+        double factor = 0;
+        if(compatible_professions.Contains(w.profession))
         {
-            factor += workerStars * 0.2;
+            factor += w.workerStars() * 0.2;
         }
         else
         {
-            factor -= workerStars * 0.2;
+            factor -= w.workerStars() * 0.2;
         }
 
         //lowest factor value
@@ -103,7 +103,7 @@ public class Job : MonoBehaviour
         return factor;
     }
 
-    public int completeJob()
+    public double completeJob()
     {
         //calculate score by worker assignment
         int sum_expected = 0;
@@ -121,12 +121,16 @@ public class Job : MonoBehaviour
                 {
                     case 0:
                         team_trait_expectation[i] += w.strength;
+                        break;
                     case 1:
                         team_trait_expectation[i] += w.trade_knowledge;
+                        break;
                     case 2:
                         team_trait_expectation[i] += w.tech_knowledge;
+                        break;
                     case 3:
                         team_trait_expectation[i] += w.professionalism;
+                        break;
                 }
             }
         }
@@ -137,16 +141,19 @@ public class Job : MonoBehaviour
             final_score += x / sum_expected;
         }
 
-        int stress_average = 0;
+        float stress_average = 0;
+        double job_compatibility = 0;
         foreach (Worker w in workers)
         {
             stress_average += w.stress;
             w.stress++;
+
+            job_compatibility += checkJobCompatibility(w);
         }
-        stress_average /= workers.Length;
+        stress_average /= workers.Count;
 
 
-        return (final_score*100) - (stress_average*9.5) + (1*checkJobCompatibility());
+        return (final_score*100) - (stress_average*9.5) + (job_compatibility);
     }
 
     // Start is called before the first frame update

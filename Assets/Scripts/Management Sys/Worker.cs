@@ -45,12 +45,12 @@ public class Worker : MonoBehaviour
         }
     }
 
-    protected int workerStars()
+    public int workerStars()
     {
         return (int)(rateWorker() / 5);
     }
 
-    public bool assignedJob()
+    public void assignedJob()
     {
         assigned = !assigned;
     }

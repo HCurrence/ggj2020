@@ -16,13 +16,12 @@ public class Manager : MonoBehaviour
         Unemployed
     }
 
-    public List<Job> orders = new List<Job>();
-    public List<Worker> available_workers = new List<Worker>();
-    public List<Worker> unavailable_workers = new List<Worker>();
+    public static List<Job> orders = new List<Job>();
+    public static List<Worker> available_workers = new List<Worker>();
+    public static List<Worker> unavailable_workers = new List<Worker>();
 
     public static void generateJobs()
     {
-        Random rand = new Random();
         int jobNum;
         string jobDesc;
         List<Manager.Profession> professions;
@@ -30,16 +29,16 @@ public class Manager : MonoBehaviour
 
         for (int i=0; i<5; i++)
         {
-            jobNum = rand.Next(1, 101);
-            jobDesc = jobDescriptions(rand.Next(1, 5));
+            jobNum = Random.Range(1, 101);
+            jobDesc = jobDescriptions(Random.Range(1, 5));
 
             professions = new List<Profession>();
             traits = new int[4];
             for (int j = 0; j < 4; j++)
             {
-                professions.Add(randProfession(rand.Next(0, 6)));
+                professions.Add(randProfession(Random.Range(0, 6)));
 
-                traits[j] = rand.Next(1, 5);
+                traits[j] = Random.Range(1, 5);
             }
 
             orders.Add(new Job(jobNum, jobDesc, professions, traits));
@@ -47,21 +46,19 @@ public class Manager : MonoBehaviour
     }
     public static void generateWorkers()
     {
-        Random rand = new Random();
-
         for(int i=0; i<10; i++)
         {
             Worker w = new Worker();
 
-            w.strength = rand.Next(1, 5);
-            w.trade_knowledge = rand.Next(1, 5);
-            w.tech_knowledge = rand.Next(1, 5);
-            w.professionalism = rand.Next(1, 5);
+            w.strength = Random.Range(1, 5);
+            w.trade_knowledge = Random.Range(1, 5);
+            w.tech_knowledge = Random.Range(1, 5);
+            w.professionalism = Random.Range(1, 5);
 
-            w.stress = rand.Next(1, 10);
+            w.stress = Random.Range(1, 10);
 
-            w.name = randNames(Rand(1, 5));
-            w.profession = randProfession;
+            w.name = randNames(Random.Range(1, 5));
+            w.profession = randProfession(Random.Range(0, 6));
 
             available_workers.Add(w);
         }
@@ -88,6 +85,8 @@ public class Manager : MonoBehaviour
             case 5:
                 return "Waste Management";
         }
+
+        return "Job goes here";
     }
 
     public static string randNames(int randNum)
@@ -105,6 +104,8 @@ public class Manager : MonoBehaviour
             case 5:
                 return "Yolanda";
         }
+
+        return "No Name";
     }
 
     public static Profession randProfession(int randNum)
@@ -126,6 +127,8 @@ public class Manager : MonoBehaviour
             case 6:
                 return Profession.Plumber;
         }
+
+        return Profession.Unemployed;
     }
 
 }
