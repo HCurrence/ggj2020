@@ -60,7 +60,7 @@ public class Worker
         assigned = !assigned;
     }
 
-    public static void generateRelationships(Worker[] workers)
+    public  void generateRelationships(Worker[] workers)
     {
         Relationship r;
         foreach (Worker w in workers)
