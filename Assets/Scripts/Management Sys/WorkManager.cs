@@ -35,7 +35,7 @@ public class WorkManager : Manager<WorkManager>
         for (int i=0; i<num; i++)
         {
             jobNum = Random.Range(1, 101);
-            jobDesc = jobDescriptionHomeRepair(Random.Range(1, 6));
+            jobDesc = jobDescriptionRandom();
 
             professions = new List<Profession>();
             traits = new int[4];
@@ -80,6 +80,23 @@ public class WorkManager : Manager<WorkManager>
     {
         available_workers.Remove(w);
         unavailable_workers.Add(w);
+    }
+
+    public string jobDescriptionRandom()
+    {
+        switch(Random.Range(1, 4))
+        {
+            case 1:
+                return jobDescriptionAccessibility(Random.Range(1, 5));
+            case 2:
+                return jobDescriptionComputerRepair(Random.Range(1, 5));
+            case 3:
+                return jobDescriptionHomeRepair(Random.Range(1, 10));
+            case 4:
+                return jobDescriptionRenovation(Random.Range(1, 8));
+        }
+
+        return "Job Not Found";
     }
 
     public string jobDescriptionHomeRepair(int randNum)
@@ -150,6 +167,25 @@ public class WorkManager : Manager<WorkManager>
                 return "We need ramps, handrails, and some way to fix the air filtration.";
             case 5:
                 return "Good morning. We have a building code violation for a lack of fire exits. We’d like to meet with you to see what our options are.";
+        }
+
+        return "Job goes here";
+    }
+
+    public string jobDescriptionComputerRepair(int randNum)
+    {
+        switch (randNum)
+        {
+            case 1:
+                return "My computer keeps clicking. Is that bad?";
+            case 2:
+                return "Tl:dr; my phone was ran over. Can you fix it??";
+            case 3:
+                return "My laptop never connects to wifi! >.<";
+            case 4:
+                return "I need a new LCD.";
+            case 5:
+                return "That Nigerian prince gave my computer a STD";
         }
 
         return "Job goes here";
