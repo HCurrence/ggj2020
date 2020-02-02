@@ -5,9 +5,9 @@ using UnityEngine;
 public class CustomerReview : Dialogue
 {
     [Range(1, 5)]
-    int review_stars; 
+    public int review_stars; 
 
-    public void generateReview(int finalScore)
+    public void generateReview(double finalScore)
     {
         if(finalScore>=90)
         {
@@ -21,14 +21,14 @@ public class CustomerReview : Dialogue
 
     private void generateBadReview()
     {
-        review_stars = Random.Range(1, 3);
+        review_stars = Random.Range(1, 4);
 
         randomCustomerReviewNegDialogue();
     }
 
     private void generateGoodReview()
     {
-        review_stars = Random.Range(4, 5);
+        review_stars = Random.Range(4, 6);
 
         randomCustomerReviewPosDialogue();
     }
@@ -37,7 +37,7 @@ public class CustomerReview : Dialogue
     {
         string[] script = null;
 
-        switch (Random.Range(1, 5))
+        switch (Random.Range(1, 6))
         {
             case 1:
                 script = new string[] { "Great job, done quick, no sweat!" };
@@ -64,7 +64,7 @@ public class CustomerReview : Dialogue
 
         string[] script = null;
 
-        switch (Random.Range(1, 5))
+        switch (Random.Range(1, 6))
         {
             case 1:
                 script = new string[] { "Horrible. I don’t know what went wrong but everyone was completely unprofessional." };

@@ -17,6 +17,38 @@ public class WorkManager : Manager<WorkManager>
         Unemployed
     }
 
+    public static readonly string[][] JOBS = {
+        new [] {
+            "There’s something wrong with our wiring.",
+            "Could you help me fix this hole in my roof?",
+            "A tree landed on our garage! We need it fixed ASAP!",
+            "Could someone repair this hole in my wall?",
+            "There’s a hole in my floor??? Help???",
+            "Our porch and deck were wrecked by the weather, we need help fixing it. ",
+            "Our A/C unit is broken.",
+            "The garage door isn’t opening.",
+            "This new house we bought doesn’t have proper ventilation.",
+            "We have three broken windows.",
+        },
+        new [] {
+            "Hello! We’re looking for contractors to help build a porch for our house!",
+            "We want to expand our home into the backyard.",
+            "Our bathroom is old and we’d like an update.",
+            "I want to finish my basement, and make it into something more exciting.",
+            "We need to update our kitchen.",
+            "We just need to take out a wall.",
+            "Hello, we’d like to add another room to our place; however, we would like a few new outlets to be connected to our electric grid as well. Is this possible?",
+            "We just need to replace the insulation in our house. So that means the attic, new windows, etc. ...",
+        },
+        new [] {
+            "Hello. I need a ramp to my house now that I’m wheelchair-bound.",
+            "Greetings. Our premises needs to have ramps and elevators added to get up to code. ",
+            "Hello. We’re turning a historic building into a museum, however, we need to add elevators, accessibility ramps, etc before we can begin operations.",
+            "We need ramps, handrails, and some way to fix the air filtration.",
+            "Good morning. We have a building code violation for a lack of fire exits. We’d like to meet with you to see what our options are.",
+        },
+    };
+
     public List<Job> orders = new List<Job>();
     public List<Worker> all_workers = new List<Worker>();
     public List<Worker> unavailable_workers = new List<Worker>();
@@ -37,7 +69,7 @@ public class WorkManager : Manager<WorkManager>
         for (int i=0; i<num; i++)
         {
             jobNum = Random.Range(1, 101);
-            jobDesc = jobDescriptions(Random.Range(1, 6));
+            jobDesc = JOBS.Random().Random();
 
             professions = new List<Profession>();
             traits = new int[4];
@@ -77,25 +109,6 @@ public class WorkManager : Manager<WorkManager>
             all_workers.Add(w);
             available_workers.Add(w);
         }
-    }
-
-    public string jobDescriptions(int randNum)
-    {
-        switch(randNum)
-        {
-            case 1:
-                return "Help me renovate my house!";
-            case 2:
-                return "I need you to install a few accessability renovations at my office.";
-            case 3:
-                return "My A/C is broken.";
-            case 4:
-                return "Could someone repair this hole in my wall?";
-            case 5:
-                return "Waste Management";
-        }
-
-        return "Job goes here";
     }
 
     public Profession randProfession(int randNum)
