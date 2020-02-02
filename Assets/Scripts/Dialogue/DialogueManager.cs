@@ -56,6 +56,8 @@ public class DialogueManager : MonoBehaviour
 
         foreach (char letter in sentence.ToCharArray())
         {
+            SoundManager.Inst.PlaySound("text_bit");
+
             dialogueText.text += letter;
             yield return null;
         }

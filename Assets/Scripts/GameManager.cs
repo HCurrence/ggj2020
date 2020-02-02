@@ -47,6 +47,10 @@ public class GameManager : Manager<GameManager> {
     }
 
     public void InitDay() {
+
+        //play rooster_crowing.wav
+        SoundManager.Inst.PlaySound("rooster_crowing.wav");
+
         WorkManager.Inst.orders.Clear();
         WorkManager.Inst.generateJobs(Mathf.RoundToInt(Mathf.Lerp(3, 5, Random.value)));
         DefaultButton.OnPointerClick(new PointerEventData(EventSystem.current));
