@@ -42,10 +42,10 @@ public class Draggable : MonoBehaviour, IPointerClickHandler {
             return false;
         }
         var workerNull = AssignNum == 1
-                ? string.IsNullOrWhiteSpace(AssignItem.Worker1.name)
+                ? string.IsNullOrWhiteSpace(AssignItem.Worker1?.name)
                 : AssignNum == 2
-                    ? string.IsNullOrWhiteSpace(AssignItem.Worker2.name)
-                    : string.IsNullOrWhiteSpace(AssignItem.Worker3.name)
+                    ? string.IsNullOrWhiteSpace(AssignItem.Worker2?.name)
+                    : string.IsNullOrWhiteSpace(AssignItem.Worker3?.name)
                     ;
         return Dragging != null && Type == DragType.Assign && workerNull;
     }
