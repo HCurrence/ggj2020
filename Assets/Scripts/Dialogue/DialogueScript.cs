@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class DialogueScript
 {
-    string playerName = GameManager.Inst.name;
 
-    public Dialogue randomSickDayDialogue(Worker w)
+    public static Dialogue randomSickDayDialogue(Worker w)
     {
-        Dialogue d = new Dialogue();
-        d.speaker_name = w.name;
+        Dialogue d = new Dialogue(w, null, null);
 
         string[] script = null;
 
@@ -37,10 +35,9 @@ public class DialogueScript
         return d;
     }
 
-    public Dialogue randomVacationDialogue(Worker w)
+    public static Dialogue randomVacationDialogue(Worker w)
     {
-        Dialogue d = new Dialogue();
-        d.speaker_name = w.name;
+        Dialogue d = new Dialogue(w, null, null);
 
         string[] script = null;
 
@@ -68,17 +65,16 @@ public class DialogueScript
         return d;
     }
 
-    public Dialogue randomWorkerComplaintDialogue(Worker w, Worker other)
+    public static Dialogue randomWorkerComplaintDialogue(Worker w, Worker other)
     {
-        Dialogue d = new Dialogue();
-        d.speaker_name = w.name;
+        Dialogue d = new Dialogue(w, null, null);
 
         string[] script = null;
 
         switch (Random.Range(1, 4))
         {
             case 1:
-                script = new string[] { "Hey, " + playerName + ", can I not work with " + other.name + "?", "We are having problems." };
+                script = new string[] { "Hey, " + GameManager.Inst.Name + ", can I not work with " + other.name + "?", "We are having problems." };
                 break;
             case 2:
                 script = new string[] { "I would like to request that I am not on a team with " + other.name + ".", "They know what they did." };
