@@ -11,7 +11,7 @@ public class ReviewList : MonoBehaviour {
     readonly List<ReviewItem> reviewItems = new List<ReviewItem>(10);
 
     void Update() {
-        var render = reviewItems.Count != WorkManager.Inst.orders.Count;
+        var render = reviewItems.Count != GameManager.Inst.prevJobs.Count;
         for (int i = 0; !render && i < reviewItems.Count; i++) {
             render |= reviewItems[i].Review != GameManager.Inst.prevJobs.Values2[i];
         }
@@ -25,7 +25,7 @@ public class ReviewList : MonoBehaviour {
             Destroy(item.gameObject);
         }
         reviewItems.Clear();
-        for (var i = 0; i < WorkManager.Inst.orders.Count; i++) {
+        for (var i = 0; i < GameManager.Inst.prevJobs.Count; i++) {
             var reviewItem = Instantiate(ReviewItemPrefab, transform);
             reviewItem.GetComponent<ReviewItem>().Review = GameManager.Inst.prevJobs.Values2[i];
             reviewItems.Add(reviewItem.GetComponent<ReviewItem>());
