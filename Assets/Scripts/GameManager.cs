@@ -74,13 +74,8 @@ public class GameManager : Manager<GameManager> {
         // do stuff
         foreach (var job in WorkManager.Inst.orders) {
             var val = job.completeJob();
-            var review = new CustomerReview();
-            review.speaker_name = job.getFrom();
-            if (val > 50) {
-                review.generateGoodReview();
-            } else {
-                review.generateBadReview();
-            }
+            var review = new CustomerReview {speaker_name = job.getFrom()};
+            review.generateReview(val);
             Debug.Log($"Day {Day} job from: {job.getFrom()}, score: {val}, review stars: {review.review_stars}");
             prevJobs.Add(job, val, review);
         }

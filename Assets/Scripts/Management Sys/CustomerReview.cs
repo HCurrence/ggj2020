@@ -7,7 +7,7 @@ public class CustomerReview : Dialogue
     [Range(1, 5)]
     public int review_stars; 
 
-    public void generateReview(int finalScore)
+    public void generateReview(double finalScore)
     {
         if(finalScore>=90)
         {
