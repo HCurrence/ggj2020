@@ -44,5 +44,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: 
+  Day: 1
   LoginObjects: []
   DefaultButton: {fileID: 0}
+  WelcomeText: {fileID: 0}
+  FadeSprite: {fileID: 0}
+  DayButton: {fileID: 0}
+  DayDot: {fileID: 0}
+  DayDotPos: {x: -230, y: 200}

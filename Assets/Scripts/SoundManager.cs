@@ -33,7 +33,7 @@ public class SoundManager : Manager<SoundManager> {
     }
 
     public void PlaySound(string soundName) {
-        Sounds.Find(s => s.name == soundName)?.Play();
+        Sounds.Find(s => s.name == soundName).Play();
     }
 
     private void playRandomMusic()

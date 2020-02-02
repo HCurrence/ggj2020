@@ -17,6 +17,9 @@ public class GameManager : Manager<GameManager> {
     public Button DefaultButton;
     public TextMeshProUGUI WelcomeText;
     public SpriteRenderer FadeSprite;
+    public GameObject DayButton;
+    public RectTransform DayDot;
+    public Vector2 DayDotPos = new Vector2(-30, 30);
 
     static int hash_djb2(string s) {
         uint hash = 5381;
@@ -52,9 +55,19 @@ public class GameManager : Manager<GameManager> {
         SoundManager.Inst.PlaySound("rooster_crowing.wav");
 
         WorkManager.Inst.orders.Clear();
-        WorkManager.Inst.generateJobs(Mathf.RoundToInt(Mathf.Lerp(3, 5, Random.value)));
+        if (Day != 5) {
+            WorkManager.Inst.generateJobs(Mathf.RoundToInt(Mathf.Lerp(3, 5, Random.value)));
+        } else {
+            WorkManager.Inst.orders.Add(new Job(1, "The End! Thanks for playing!", "Haley & Pia & Momin", new List<WorkManager.Profession> { WorkManager.Profession.Archictect }, new [] { 5 }));
+        }
         DefaultButton.OnPointerClick(new PointerEventData(EventSystem.current));
         DefaultButton.Select();
+
+        DayDot.anchoredPosition = DayDot.anchoredPosition.withX(Mathf.Lerp(DayDotPos.x, DayDotPos.y, (Day - 1f) / 4f));
+        if (Day == 5) {
+            DayDot.gameObject.SetActive(false);
+            DayButton.SetActive(false);
+        }
     }
 
     public void FinishDay() {
