@@ -489,7 +489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b968a89e01f4b1347b5a7bbf9eb0c31f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainColor: {r: 1, g: 1, b: 1, a: 1}
+  MainColor: {r: 0.22352943, g: 0.73333335, b: 0.9176471, a: 1}
   Title: Title Here
 --- !u!114 &2484380410513302222
 MonoBehaviour:
@@ -504,7 +504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.22352943, g: 0.73333335, b: 0.9176471, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:

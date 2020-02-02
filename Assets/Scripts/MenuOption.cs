@@ -19,7 +19,7 @@ public class MenuOption : MonoBehaviour {
     }
 
     void Update() {
-        ConnectedPanel.MainColor = background.color;
+        //ConnectedPanel.MainColor = background.color;
         ConnectedPanel.Title = text.text;
     }
 }
