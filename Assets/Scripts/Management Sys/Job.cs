@@ -117,7 +117,7 @@ public class Job
     public double completeJob()
     {
         //calculate score by worker assignment
-        int sum_expected = 0;
+        float sum_expected = 0;
         foreach (int x in team_trait_expectation)
         {
             sum_expected += x;
@@ -147,9 +147,10 @@ public class Job
         }
 
         float final_score = 0;
-        foreach (int x in team_trait_expectation)
-        {
-            final_score += x / sum_expected;
+        if (sum_expected > 0) {
+            foreach (int x in team_trait_expectation) {
+                final_score += x / sum_expected;
+            }
         }
 
         float stress_average = 0;
