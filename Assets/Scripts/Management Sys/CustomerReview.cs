@@ -9,7 +9,7 @@ public class CustomerReview : Dialogue
 
     public void generateReview(double finalScore)
     {
-        if(finalScore>=90)
+        if(finalScore>=190)
         {
             generateGoodReview();
         }

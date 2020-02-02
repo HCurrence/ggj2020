@@ -120,7 +120,6 @@ public class Job
         float sum_expected = 0;
         foreach (int x in team_trait_expectation)
         {
-            Debug.Log("sum_expected : " + sum_expected);
             sum_expected += x;
         }
 
@@ -150,7 +149,6 @@ public class Job
         float final_score = 0;
         if (sum_expected > 0) {
             foreach (int x in team_trait_expectation) {
-                Debug.Log("calculating... : " + final_score);
                 final_score += x / sum_expected;
             }
         }
