@@ -14,8 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WorkerItemPrefab: {fileID: 933729899156275989, guid: 9c3109e05dc2bc24593195fe665744b3,
     type: 3}
-  ItemY: -67
-  ItemGap: -115
 --- !u!1001 &4494006549050561218
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23,10 +21,35 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 863111584100908155, guid: a00073ce41380544fa4ce4d735a7c5cb,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 863111584100908155, guid: a00073ce41380544fa4ce4d735a7c5cb,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 863111584100908155, guid: a00073ce41380544fa4ce4d735a7c5cb,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 863111584100908155, guid: a00073ce41380544fa4ce4d735a7c5cb,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 863111584100908155, guid: a00073ce41380544fa4ce4d735a7c5cb,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3500366027076094414, guid: a00073ce41380544fa4ce4d735a7c5cb,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5534127625684061248, guid: a00073ce41380544fa4ce4d735a7c5cb,
         type: 3}
@@ -36,12 +59,12 @@ PrefabInstance:
     - target: {fileID: 5534127625684061248, guid: a00073ce41380544fa4ce4d735a7c5cb,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5534127625684061248, guid: a00073ce41380544fa4ce4d735a7c5cb,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6329493757837297277, guid: a00073ce41380544fa4ce4d735a7c5cb,
         type: 3}

@@ -34,4 +34,6 @@ public class NameGenerator : Manager<NameGenerator> {
         var i2 = Random.value > 0.5f ? i1 : Mathf.FloorToInt(lastNameSuffixes.Length * Random.value);
         return lastNamePrefixes[i1] + lastNameSuffixes[i2];
     }
+
+    public string GetRandomName() => GetRandomFirstName() + " " + GetRandomLastName();
 }

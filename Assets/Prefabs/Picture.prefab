@@ -360,13 +360,13 @@ MonoBehaviour:
     tech_knowledge: 0
     professionalism: 0
     stress: 0
-    SkinColor: {r: 0, g: 1, b: 1, a: 1}
+    SkinColor: {r: 1, g: 1, b: 1, a: 1}
     Hair: {fileID: 0}
-    HairColor: {r: 1, g: 0, b: 1, a: 1}
+    HairColor: {r: 1, g: 1, b: 1, a: 1}
     Clothes: {fileID: 0}
-    ClothesColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    ClothesColor: {r: 1, g: 1, b: 1, a: 1}
     Accessory: {fileID: 0}
-    name: John Doe
+    name: 
     profession: 7
     social_life: []
 --- !u!114 &4333442337719272596

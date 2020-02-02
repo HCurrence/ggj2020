@@ -40,4 +40,8 @@ public class GameManager : Manager<GameManager> {
         DefaultButton.Select();
         WelcomeText.text = WelcomeText.text.Replace("{}", Name);
     }
+
+    public void ClearDrag() {
+        Draggable.Dragging = null;
+    }
 }
