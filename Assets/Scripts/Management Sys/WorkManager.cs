@@ -35,7 +35,7 @@ public class WorkManager : Manager<WorkManager>
         for (int i=0; i<num; i++)
         {
             jobNum = Random.Range(1, 101);
-            jobDesc = jobDescriptions(Random.Range(1, 6));
+            jobDesc = jobDescriptionHomeRepair(Random.Range(1, 6));
 
             professions = new List<Profession>();
             traits = new int[4];
