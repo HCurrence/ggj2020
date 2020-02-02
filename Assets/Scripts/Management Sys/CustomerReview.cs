@@ -7,21 +7,33 @@ public class CustomerReview : Dialogue
     [Range(1, 5)]
     int review_stars; 
 
-    public void generateBadReview()
+    public void generateReview(int finalScore)
+    {
+        if(finalScore>=90)
+        {
+            generateGoodReview();
+        }
+        else
+        {
+            generateBadReview();
+        }
+    }
+
+    private void generateBadReview()
     {
         review_stars = Random.Range(1, 3);
 
         randomCustomerReviewNegDialogue();
     }
 
-    public void generateGoodReview()
+    private void generateGoodReview()
     {
         review_stars = Random.Range(4, 5);
 
         randomCustomerReviewPosDialogue();
     }
 
-    public void randomCustomerReviewPosDialogue()
+    private void randomCustomerReviewPosDialogue()
     {
         string[] script = null;
 
@@ -47,7 +59,7 @@ public class CustomerReview : Dialogue
         sentences = script;
     }
 
-    public void randomCustomerReviewNegDialogue()
+    private void randomCustomerReviewNegDialogue()
     {
 
         string[] script = null;
