@@ -76,7 +76,7 @@ public class WorkManager : Manager<WorkManager>
         }
     }
 
-    public void vacation(Worker w)
+    public void workerUnavailable(Worker w)
     {
         available_workers.Remove(w);
         unavailable_workers.Add(w);
