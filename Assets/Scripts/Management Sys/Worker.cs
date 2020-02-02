@@ -63,7 +63,7 @@ public class Worker
         return (int)(rateWorker() / 5);
     }
 
-    public void assignedJob()
+    public void assignedJob(bool a)
     {
         assigned = !assigned;
     }
