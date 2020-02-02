@@ -10,6 +10,7 @@ public class Panel : MonoBehaviour {
 
     public Color MainColor = Color.white;
     public string Title = "";
+    public GameObject Hider;
 
     Image background;
     TextMeshProUGUI title;
@@ -31,9 +32,18 @@ public class Panel : MonoBehaviour {
     }
 
     public void Show() {
-        foreach (var panel in AllInScene) {
-            panel.gameObject.SetActive(false);
-        }
+        Hider.SetActive(true);
         gameObject.SetActive(true);
+        StartCoroutine(DoShow());
+    }
+
+    IEnumerator DoShow() {
+        foreach (var panel in AllInScene) {
+            if (panel != this) 
+                panel.gameObject.SetActive(false);
+        }
+        yield return null;
+        yield return null;
+        Hider.SetActive(false);
     }
 }

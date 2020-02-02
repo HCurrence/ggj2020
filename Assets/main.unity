@@ -326,6 +326,16 @@ PrefabInstance:
       propertyPath: DayButton
       value: 
       objectReference: {fileID: 431712835}
+    - target: {fileID: 6296490600947548895, guid: fdec68403ff95b949a99754f806110cc,
+        type: 3}
+      propertyPath: DayDotPos.x
+      value: -235
+      objectReference: {fileID: 0}
+    - target: {fileID: 6296490600947548895, guid: fdec68403ff95b949a99754f806110cc,
+        type: 3}
+      propertyPath: DayDotPos.y
+      value: 196
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdec68403ff95b949a99754f806110cc, type: 3}
 --- !u!1001 &4239153312700770526
@@ -473,7 +483,12 @@ PrefabInstance:
     - target: {fileID: 1772909504598373626, guid: 5a49b2f0f509a91479e46f15021c837b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -230
+      value: -233
+      objectReference: {fileID: 0}
+    - target: {fileID: 1772909504598373626, guid: 5a49b2f0f509a91479e46f15021c837b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 271
       objectReference: {fileID: 0}
     - target: {fileID: 2781907480349302417, guid: 5a49b2f0f509a91479e46f15021c837b,
         type: 3}
@@ -639,6 +654,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 6295071995439650423, guid: 3fe7c2fd142f2794f925078ce1ef00a0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8632099345736053004, guid: 3fe7c2fd142f2794f925078ce1ef00a0,
         type: 3}
       propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
