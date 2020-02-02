@@ -157,8 +157,86 @@ public class Job
         }
         stress_average /= workers.Count;
 
+        return (final_score*100) - (stress_average*9.5) + job_compatibility;
+    }
 
-        return (final_score*100) - (stress_average*9.5) + (job_compatibility);
+    public void evaluateWorkerRelationships(double finalScore)
+    {
+        Worker[] people = workers.ToArray();
+
+        Relationship[] relationshipsA, relationshipsB;
+        Relationship a, b;
+        for(int i=0; i<people.Length; i++) //A
+        {
+            for(int j=(i+1); i<people.Length-1; i++) //B
+            {
+                relationshipsA = people[i].social_life.ToArray();
+                int index = searchSocial(people[j], relationshipsA);
+                b = relationshipsA[index]; //b in a
+
+                relationshipsB = people[j].social_life.ToArray();
+                index = searchSocial(people[i], relationshipsB);
+                a = relationshipsB[index]; //a in b
+
+                if(finalScore>80)
+                {
+                    a.status = a.status + relationshipModValue(a) * 2;
+                    b.status = b.status + relationshipModValue(b) * 2;
+                }
+                else if(finalScore<20)
+                {
+                    a.status = a.status - relationshipModValue(a) * 2;
+                    b.status = b.status - relationshipModValue(b) * 2;
+                }
+                else
+                {
+                    a.status = a.status + relationshipModValue(a);
+                    b.status = b.status + relationshipModValue(b);
+                }
+            }
+        }
+    }
+
+    private int searchSocial(Worker w, Relationship[] arr)
+    {
+        Relationship r;
+        for(int i=0; i<arr.Length; i++)
+        {
+            if(arr[i].name == w.name)
+            {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    private double relationshipModValue(Relationship r)
+    {
+        if (r.status < 2)
+        {
+            return 0.5;
+        }
+        else if (r.status == 3)
+        {
+            return 1;
+        }
+        else if(r.status > 4 && r.status < 6)
+        {
+            return 0.5;
+        }
+        else if(r.status == 7)
+        {
+            return 1;
+        }
+        else if(r.status > 8)
+        {
+            return 0.5;
+        }
+        else
+        {
+            return 0;
+        }
     }
 
     // Start is called before the first frame update

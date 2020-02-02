@@ -16,6 +16,8 @@ public class Worker
     public string name;
     public WorkManager.Profession profession;
 
+    public List<Relationship> social_life;
+
     public Worker()
     {
         strength = 0;
@@ -56,6 +58,17 @@ public class Worker
     public void assignedJob()
     {
         assigned = !assigned;
+    }
+
+    public static void generateRelationships(Worker[] workers)
+    {
+        Relationship r;
+        foreach (Worker w in workers)
+        {
+            r = new Relationship(w, Random.Range(0, 10));
+
+            social_life.Add(r);
+        }
     }
 
     // Start is called before the first frame update
