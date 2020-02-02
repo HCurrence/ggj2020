@@ -64,13 +64,13 @@ public class Job
         if (!workers.Contains(w))
         {
             workers.Add(w);
-            w.assignedJob();
+            w.assignedJob(true);
         }
     }
     public void removeWorker(Worker w)
     {
         workers.Remove(w);
-        w.assignedJob();
+        w.assignedJob(false);
     }
     public void setCompatibleProfessions(List<WorkManager.Profession> list)
     {
