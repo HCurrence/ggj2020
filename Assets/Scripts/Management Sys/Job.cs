@@ -178,6 +178,17 @@ public class Job
                 index = searchSocial(people[i], relationshipsB);
                 a = relationshipsB[index]; //a in b
 
+                if(people[i].professionalism-people[j].professionalism >=4)
+                {
+                    a.status = a.status - 0.5;
+                    b.status = b.status - 0.5;
+                }
+                else
+                {
+                    a.status = a.status + 0.25;
+                    b.status = b.status + 0.25;
+                }
+
                 if(finalScore>80)
                 {
                     a.status = a.status + relationshipModValue(a) * 2;
@@ -192,6 +203,16 @@ public class Job
                 {
                     a.status = a.status + relationshipModValue(a);
                     b.status = b.status + relationshipModValue(b);
+                }
+
+                if(a.status<=0)
+                {
+                    a.status = 1;
+                }
+
+                if (b.status <= 0)
+                {
+                    b.status = 1;
                 }
             }
         }
