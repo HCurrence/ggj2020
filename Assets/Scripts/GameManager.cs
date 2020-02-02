@@ -23,6 +23,9 @@ public class GameManager : Manager<GameManager> {
     }
 
     public void Login(string n) {
+        if (string.IsNullOrWhiteSpace(n) || n.Length < 3)
+            return;
+
         Name = n;
 
         // generate all the random stuff here using the inputted name as a random seed

@@ -30,7 +30,7 @@ public class WorkManager : Manager<WorkManager>
         for (int i=0; i<num; i++)
         {
             jobNum = Random.Range(1, 101);
-            jobDesc = jobDescriptions(Random.Range(1, 5));
+            jobDesc = jobDescriptions(Random.Range(1, 6));
 
             professions = new List<Profession>();
             traits = new int[4];
@@ -38,7 +38,7 @@ public class WorkManager : Manager<WorkManager>
             {
                 professions.Add(randProfession(Random.Range(0, 6)));
 
-                traits[j] = Random.Range(1, 5);
+                traits[j] = Random.Range(1, 6);
             }
 
             orders.Add(new Job(jobNum, jobDesc, professions, traits));
@@ -50,15 +50,15 @@ public class WorkManager : Manager<WorkManager>
         {
             Worker w = new Worker();
 
-            w.strength = Random.Range(1, 5);
-            w.trade_knowledge = Random.Range(1, 5);
-            w.tech_knowledge = Random.Range(1, 5);
-            w.professionalism = Random.Range(1, 5);
+            w.strength = Random.Range(1, 6);
+            w.trade_knowledge = Random.Range(1, 6);
+            w.tech_knowledge = Random.Range(1, 6);
+            w.professionalism = Random.Range(1, 6);
 
             w.stress = Random.Range(1, 10);
 
             w.name = NameGenerator.Inst.GetRandomFirstName() + " " + NameGenerator.Inst.GetRandomLastName();
-            w.profession = randProfession(Random.Range(0, 6));
+            w.profession = randProfession(Random.Range(0, 7));
 
             available_workers.Add(w);
         }
