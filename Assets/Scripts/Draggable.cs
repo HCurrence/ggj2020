@@ -67,6 +67,7 @@ public class Draggable : MonoBehaviour, IPointerClickHandler {
 
             if (!string.IsNullOrWhiteSpace(oldWorker?.name)) {
                 WorkManager.Inst.unavailable_workers.Remove(oldWorker);
+                AssignItem.Job.removeWorker(oldWorker);
                 if (AssignNum == 1) {
                     AssignItem.Worker1 = null;
                 } else if (AssignNum == 2) {
@@ -77,6 +78,7 @@ public class Draggable : MonoBehaviour, IPointerClickHandler {
             }
             if (!string.IsNullOrWhiteSpace(newWorker?.name)) {
                 WorkManager.Inst.unavailable_workers.Add(newWorker);
+                AssignItem.Job.addWorker(newWorker);
                 if (AssignNum == 1) {
                     AssignItem.Worker1 = newWorker;
                 } else if (AssignNum == 2) {
