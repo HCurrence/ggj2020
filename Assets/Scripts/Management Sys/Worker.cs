@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [Serializable]
 public class Worker
@@ -11,7 +12,14 @@ public class Worker
     [Range(0, 10)]
     public float stress;
     protected float rate;
-    protected bool assigned; 
+    protected bool assigned;
+
+    public Color SkinColor = Color.cyan;
+    public Sprite Hair;
+    public Color HairColor = Color.magenta;
+    public Sprite Clothes;
+    public Color ClothesColor = Color.yellow;
+    public Sprite Accessory;
 
     public string name;
     public WorkManager.Profession profession;

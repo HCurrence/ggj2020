@@ -20,6 +20,11 @@ public class WorkManager : Manager<WorkManager>
     public List<Worker> available_workers = new List<Worker>();
     public List<Worker> unavailable_workers = new List<Worker>();
 
+    public Color[] SkinColors;
+    public Sprite[] Hairs;
+    public Sprite[] Clothes;
+    public Sprite[] Accessories;
+
     public void generateJobs(int num)
     {
         int jobNum;
@@ -59,6 +64,13 @@ public class WorkManager : Manager<WorkManager>
 
             w.name = NameGenerator.Inst.GetRandomFirstName() + " " + NameGenerator.Inst.GetRandomLastName();
             w.profession = randProfession(Random.Range(0, 7));
+
+            w.SkinColor = Color.Lerp(SkinColors.Random(), SkinColors.Random(), Random.value);
+            w.Hair = Hairs.Random();
+            w.HairColor = Color.HSVToRGB(Random.value, Mathf.Lerp(0.1f, 0.9f, Random.value), Mathf.Lerp(0.5f, 0.9f, Random.value));
+            w.Clothes = Clothes.Random();
+            w.ClothesColor = Color.HSVToRGB(Random.value, Mathf.Lerp(0.75f, 1.0f, Random.value), 1.0f);
+            w.Accessory = Accessories.Random();
 
             available_workers.Add(w);
         }

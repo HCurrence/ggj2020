@@ -46,3 +46,26 @@ MonoBehaviour:
   orders: []
   available_workers: []
   unavailable_workers: []
+  SkinColors:
+  - {r: 1, g: 0.97032356, b: 0.872, a: 1}
+  - {r: 0.94509804, g: 0.85747695, b: 0.6634588, a: 1}
+  - {r: 0.65199995, g: 0.46378112, b: 0.18145283, a: 1}
+  - {r: 0.348, g: 0.14319609, b: 0.025375007, a: 1}
+  Hairs:
+  - {fileID: 21300000, guid: 4e175d0275de6ba49b7523daf4356a80, type: 3}
+  - {fileID: 21300000, guid: 1fed3ff2e80bde448b317463921d0cb1, type: 3}
+  - {fileID: 21300000, guid: 2b7ef3abfbc1ba845a5727abe509e110, type: 3}
+  - {fileID: 21300000, guid: 17aec7f18886f4a4684616be968824a8, type: 3}
+  - {fileID: 21300000, guid: e56132f35d9311840987e6772da02871, type: 3}
+  - {fileID: 21300000, guid: faab4913551d11846bff71808ea89275, type: 3}
+  Clothes:
+  - {fileID: 21300000, guid: d2c411b2d54d80f449bddfef74c6c567, type: 3}
+  - {fileID: 21300000, guid: b8b1ac8336a82bf488c358dae5be3c92, type: 3}
+  Accessories:
+  - {fileID: 21300000, guid: bc0a45d4d2de54c46b63be067fb6b5a0, type: 3}
+  - {fileID: 21300000, guid: 6e4b851abcc8f3b4e8b12b147f073b1b, type: 3}
+  - {fileID: 21300000, guid: 908d9042fdb9cdf45a8aff0f55666a86, type: 3}
+  - {fileID: 21300000, guid: 908d9042fdb9cdf45a8aff0f55666a86, type: 3}
+  - {fileID: 21300000, guid: 908d9042fdb9cdf45a8aff0f55666a86, type: 3}
+  - {fileID: 21300000, guid: 3ae1e33cb38a4694895f59d4a753f881, type: 3}
+  - {fileID: 21300000, guid: 374300fbfa94c5546bad32ee590ef6ee, type: 3}
