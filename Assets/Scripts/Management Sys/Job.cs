@@ -10,6 +10,8 @@ public class Job
     protected int job_number;
     [SerializeField]
     protected string job_description;
+    [SerializeField]
+    protected string from_name;
 
     [SerializeField]
     protected List<WorkManager.Profession> compatible_professions;
@@ -31,6 +33,7 @@ public class Job
     {
         job_number = -1;
         job_description = "N/A";
+        from_name = "Nobody";
 
         workers = new List<Worker>();
         compatible_professions = new List<WorkManager.Profession>();
@@ -39,10 +42,11 @@ public class Job
 
         team_trait_expectation = new int[4];
     }
-    public Job(int num, string desc, List<WorkManager.Profession> list, int[] expectedValues)
+    public Job(int num, string desc, string from, List<WorkManager.Profession> list, int[] expectedValues)
     {
         job_number = num;
         job_description = desc;
+        from_name = from;
 
         workers = new List<Worker>();
         compatible_professions = list;
@@ -81,11 +85,13 @@ public class Job
     {
         return job_number;
     }
-    public string getDescription()
-    {
+    public string getDescription() {
         return job_description;
     }
-    
+    public string getFrom() {
+        return from_name;
+    }
+
     //Returns job satisfaction factor
     public double checkJobCompatibility(Worker w)
     {

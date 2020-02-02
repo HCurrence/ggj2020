@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class WorkManager : Manager<WorkManager>
@@ -17,8 +18,9 @@ public class WorkManager : Manager<WorkManager>
     }
 
     public List<Job> orders = new List<Job>();
-    public List<Worker> available_workers = new List<Worker>();
+    public List<Worker> all_workers = new List<Worker>();
     public List<Worker> unavailable_workers = new List<Worker>();
+    public List<Worker> available_workers => all_workers.Where(w => !unavailable_workers.Contains(w)).ToList();
 
     public Color[] SkinColors;
     public Sprite[] Hairs;
@@ -46,7 +48,7 @@ public class WorkManager : Manager<WorkManager>
                 traits[j] = Random.Range(1, 6);
             }
 
-            orders.Add(new Job(jobNum, jobDesc, professions, traits));
+            orders.Add(new Job(jobNum, jobDesc, NameGenerator.Inst.GetRandomName(), professions, traits));
         }
     }
     public void generateWorkers(int num)
@@ -62,7 +64,7 @@ public class WorkManager : Manager<WorkManager>
 
             w.stress = Random.Range(1, 10);
 
-            w.name = NameGenerator.Inst.GetRandomFirstName() + " " + NameGenerator.Inst.GetRandomLastName();
+            w.name = NameGenerator.Inst.GetRandomName();
             w.profession = randProfession(Random.Range(0, 7));
 
             w.SkinColor = Color.Lerp(SkinColors.Random(), SkinColors.Random(), Random.value);
@@ -72,14 +74,9 @@ public class WorkManager : Manager<WorkManager>
             w.ClothesColor = Color.HSVToRGB(Random.value, Mathf.Lerp(0.75f, 1.0f, Random.value), 1.0f);
             w.Accessory = Accessories.Random();
 
+            all_workers.Add(w);
             available_workers.Add(w);
         }
-    }
-
-    public void vacation(Worker w)
-    {
-        available_workers.Remove(w);
-        unavailable_workers.Add(w);
     }
 
     public string jobDescriptions(int randNum)

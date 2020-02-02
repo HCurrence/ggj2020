@@ -12,21 +12,26 @@ public class Picture : MonoBehaviour {
     Image Hair;
     Image Clothes;
     Image Accessory;
+    TextMeshProUGUI Name;
 
     void Awake() {
         Base = transform.Find("Base").GetComponent<Image>();
         Hair = transform.Find("Hair").GetComponent<Image>();
         Clothes = transform.Find("Clothes").GetComponent<Image>();
         Accessory = transform.Find("Accessory").GetComponent<Image>();
+        Name = transform.Find("Name")?.GetComponent<TextMeshProUGUI>();
     }
 
     void Update() {
-        Base.color = Worker.SkinColor;
-        Hair.sprite = Worker.Hair;
-        Hair.color = Worker.HairColor;
-        Clothes.sprite = Worker.Clothes;
-        Clothes.color = Worker.ClothesColor;
-        Accessory.sprite = Worker.Accessory;
+        Base.color = Worker?.SkinColor ?? Color.white;
+        Hair.sprite = Worker?.Hair;
+        Hair.color = Worker?.HairColor ?? Color.white;
+        Clothes.sprite = Worker?.Clothes;
+        Clothes.color = Worker?.ClothesColor ?? Color.white;
+        Accessory.sprite = Worker?.Accessory;
+        if (Name) {
+            Name.text = Worker?.name ?? "";
+        }
     }
 
 }

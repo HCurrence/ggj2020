@@ -14,11 +14,11 @@ public class Worker
     protected float rate;
     protected bool assigned;
 
-    public Color SkinColor = Color.cyan;
+    public Color SkinColor = Color.white;
     public Sprite Hair;
-    public Color HairColor = Color.magenta;
+    public Color HairColor = Color.white;
     public Sprite Clothes;
-    public Color ClothesColor = Color.yellow;
+    public Color ClothesColor = Color.white;
     public Sprite Accessory;
 
     public string name;
@@ -37,7 +37,7 @@ public class Worker
         rate = rateWorker();
         assigned = false;
 
-        name = "John Doe";
+        name = "";
         profession = WorkManager.Profession.Unemployed;
     }
 
