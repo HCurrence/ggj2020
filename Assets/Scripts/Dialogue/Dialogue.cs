@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
+//store dialogue here to be called by the Dialogue Manager
+[System.Serializable]
+public class Dialogue
+{
+    public string speaker_name;
+
+    [TextArea(3, 10)]
+    public string[] sentences;
+
+
 }
