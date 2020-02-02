@@ -82,20 +82,74 @@ public class WorkManager : Manager<WorkManager>
         unavailable_workers.Add(w);
     }
 
-    public string jobDescriptions(int randNum)
+    public string jobDescriptionHomeRepair(int randNum)
     {
-        switch(randNum)
+        switch (randNum)
         {
             case 1:
-                return "Help me renovate my house!";
+                return "There’s something wrong with our wiring.";
             case 2:
-                return "I need you to install a few accessability renovations at my office.";
+                return "Could you help me fix this hole in my roof?";
             case 3:
-                return "My A/C is broken.";
+                return "A tree landed on our garage! We need it fixed ASAP!";
             case 4:
                 return "Could someone repair this hole in my wall?";
             case 5:
-                return "Waste Management";
+                return "There’s a hole in my floor??? Help???";
+            case 6:
+                return "Our porch and deck were wrecked by the weather, we need help fixing it. ";
+            case 7:
+                return "Our A/C unit is broken.";
+            case 8:
+                return "The garage door isn’t opening.";
+            case 9:
+                return "This new house we bought doesn’t have proper ventilation.";
+            case 10:
+                return "We have three broken windows.";
+        }
+
+        return "Job goes here";
+    }
+
+    public string jobDescriptionRenovation(int randNum)
+    {
+        switch (randNum)
+        {
+            case 1:
+                return "Hello! We’re looking for contractors to help build a porch for our house!";
+            case 2:
+                return "We want to expand our home into the backyard.";
+            case 3:
+                return "Our bathroom is old and we’d like an update.";
+            case 4:
+                return "I want to finish my basement, and make it into something more exciting.";
+            case 5:
+                return "We need to update our kitchen.";
+            case 6:
+                return "We just need to take out a wall.";
+            case 7:
+                return "Hello, we’d like to add another room to our place; however, we would like a few new outlets to be connected to our electric grid as well. Is this possible?";
+            case 8:
+                return "We just need to replace the insulation in our house. So that means the attic, new windows, etc. ...";
+        }
+
+        return "Job goes here";
+    }
+
+    public string jobDescriptionAccessibility(int randNum)
+    {
+        switch (randNum)
+        {
+            case 1:
+                return "Hello. I need a ramp to my house now that I’m wheelchair-bound.";
+            case 2:
+                return "Greetings. Our premises needs to have ramps and elevators added to get up to code. ";
+            case 3:
+                return "Hello. We’re turning a historic building into a museum, however, we need to add elevators, accessibility ramps, etc before we can begin operations.";
+            case 4:
+                return "We need ramps, handrails, and some way to fix the air filtration.";
+            case 5:
+                return "Good morning. We have a building code violation for a lack of fire exits. We’d like to meet with you to see what our options are.";
         }
 
         return "Job goes here";

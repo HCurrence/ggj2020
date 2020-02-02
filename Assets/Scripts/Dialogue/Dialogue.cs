@@ -13,5 +13,15 @@ public class Dialogue
     [TextArea(3, 10)]
     public string[] sentences;
 
+    public Dialogue()
+    {
 
+    }
+
+    public Dialogue(string name, string[] lines)
+    {
+        speaker_name = name;
+
+        sentences = lines;
+    }
 }
