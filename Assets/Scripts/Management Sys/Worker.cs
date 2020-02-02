@@ -8,7 +8,7 @@ public class Worker
 {
     [Range(1, 5)]
     public int strength, trade_knowledge, tech_knowledge, professionalism;
-    [Range(0, 1)]
+    [Range(0, 10)]
     public float stress;
     protected float rate;
     protected bool assigned; 
